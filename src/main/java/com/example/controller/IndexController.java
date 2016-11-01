@@ -58,5 +58,23 @@ public class IndexController {
     public String list(UserListForm userListForm){
         return "size="+userListForm.getUsers().size()+" "+userListForm.toString();
     }
+    //set数据绑定
+    @RequestMapping("set")
+    @ResponseBody
+    public String set(UserListForm userListForm){
+        return userListForm.toString();
+    }
+    //json数据绑定
+    @RequestMapping("json")
+    @ResponseBody
+    public String json(@RequestBody  User user){
+        return user.toString();
+    }
+    //xml数据绑定
+    @RequestMapping("xml")
+    @ResponseBody
+    public String xml(@RequestBody  Admin admin){
+        return admin.toString();
+    }
 
 }
