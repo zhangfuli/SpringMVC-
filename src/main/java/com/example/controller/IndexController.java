@@ -1,9 +1,12 @@
 package com.example.controller;
 
+import com.example.dao.StudentDao;
 import com.example.model.Admin;
+import com.example.model.Student;
 import com.example.model.User;
 import com.example.model.UserListForm;
 import org.hibernate.validator.constraints.CreditCardNumber;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +18,11 @@ import java.util.List;
  */
 @Controller
 public class IndexController {
+
+    @Autowired
+    StudentDao studentDao;
+
+
     //包装类型可以为空   基本类型不能为空
     @RequestMapping("hello_0")  //lcoalhost:8080/home?age=
     @ResponseBody
@@ -76,5 +84,12 @@ public class IndexController {
     public String xml(@RequestBody  Admin admin){
         return admin.toString();
     }
+
+    @RequestMapping("dbtest")
+    @ResponseBody
+    public void dbtest(){
+
+    }
+
 
 }
